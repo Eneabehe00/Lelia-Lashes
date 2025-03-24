@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import heroImage from '../assets/hero-image.svg';
+import lashesBg from '../assets/lashes-bg.svg';
 
 const Hero = () => {
   const heroRef = useRef(null);
@@ -106,8 +108,9 @@ const Hero = () => {
         />
       ))}
       
-      <div className="absolute inset-0 bg-[url('/src/assets/lashes-bg.svg')] bg-no-repeat bg-cover bg-center opacity-10 z-0 
-                     [transform:translate(calc(var(--mouse-x)*20px - 10px),calc(var(--mouse-y)*20px - 10px))] transition-transform duration-[1500ms]"></div>
+      <div className="absolute inset-0 bg-no-repeat bg-cover bg-center opacity-10 z-0 
+                     [transform:translate(calc(var(--mouse-x)*20px - 10px),calc(var(--mouse-y)*20px - 10px))] transition-transform duration-[1500ms]"
+           style={{ backgroundImage: `url(${lashesBg})` }}></div>
       
       {/* Floating decorative elements */}
       <motion.div 
@@ -241,7 +244,7 @@ const Hero = () => {
               
               <div className="absolute inset-1 rounded-full overflow-hidden bg-white">
                 <motion.img 
-                  src="/src/assets/hero-image.svg" 
+                  src={heroImage}
                   alt="Lelia Lashes Extension Ciglia" 
                   className="w-full h-full object-cover"
                   initial={{ scale: 1.2 }}

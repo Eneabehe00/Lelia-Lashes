@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import lela from '../assets/lela.jpeg';
 
 const About = () => {
   const controls = useAnimation();
@@ -165,12 +166,12 @@ const About = () => {
           className="flex flex-col lg:flex-row items-center gap-12 mb-20"
         >
           <motion.div 
-            className="lg:w-1/2"
+            className="lg:w-2/5"
             variants={itemVariants}
           >
-            <div className="relative">
+            <div className="relative max-w-md mx-auto">
               <motion.div 
-                className="w-full h-full rounded-2xl overflow-hidden shadow-xl relative"
+                className="rounded-2xl overflow-hidden shadow-xl relative"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
@@ -187,7 +188,7 @@ const About = () => {
                 />
                 <div className="relative rounded-2xl overflow-hidden">
                   <motion.img 
-                    src="/src/assets/Logo-Lelia.jpeg" 
+                    src={lela} 
                     alt="Lelia - Professionista Extension Ciglia" 
                     className="w-full h-full object-cover"
                     initial={{ scale: 1.2, filter: "blur(5px)" }}
@@ -203,7 +204,7 @@ const About = () => {
               </motion.div>
               
               <motion.div 
-                className="absolute -bottom-6 -right-6 w-36 h-36 bg-primary rounded-full flex items-center justify-center shadow-lg"
+                className="absolute -bottom-4 -right-4 w-28 h-28 bg-primary rounded-full flex items-center justify-center shadow-lg"
                 initial={{ scale: 0, rotate: -90 }}
                 animate={{ scale: 1, rotate: 0 }}
                 transition={{ delay: 0.6, duration: 0.5, type: "spring" }}
@@ -212,14 +213,14 @@ const About = () => {
                   boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
                 }}
               >
-                <p className="text-white font-serif text-lg font-medium text-center leading-tight">
-                  <span className="text-2xl font-bold">5+</span><br/>
+                <p className="text-white font-serif text-base font-medium text-center leading-tight">
+                  <span className="text-xl font-bold">5+</span><br/>
                   anni di<br/>esperienza
                 </p>
               </motion.div>
               
               <motion.div 
-                className="absolute -top-6 -left-6 w-24 h-24 bg-gold rounded-full flex items-center justify-center shadow-lg"
+                className="absolute -top-4 -left-4 w-20 h-20 bg-gold rounded-full flex items-center justify-center shadow-lg"
                 initial={{ scale: 0, rotate: 90 }}
                 animate={{ scale: 1, rotate: 0 }}
                 transition={{ delay: 0.8, duration: 0.5, type: "spring" }}
@@ -228,8 +229,8 @@ const About = () => {
                   boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
                 }}
               >
-                <p className="text-white font-serif text-base font-medium text-center leading-tight">
-                  <span className="text-xl font-bold">100%</span><br/>
+                <p className="text-white font-serif text-sm font-medium text-center leading-tight">
+                  <span className="text-lg font-bold">100%</span><br/>
                   Qualità
                 </p>
               </motion.div>
@@ -237,84 +238,86 @@ const About = () => {
           </motion.div>
           
           <motion.div 
-            className="lg:w-1/2 mt-12 lg:mt-0"
+            className="lg:w-3/5 mt-12 lg:mt-0"
             variants={itemVariants}
           >
-            <motion.h3 
-              className="text-3xl font-serif font-semibold mb-2 text-gray-800 relative inline-block"
-              variants={itemVariants}
-            >
-              Lelia Lashes
-              <motion.div 
-                className="absolute -bottom-1 left-0 h-0.5 w-12 bg-primary"
-                initial={{ width: 0 }}
-                animate={{ width: "2rem" }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-              />
-            </motion.h3>
-            
-            <motion.h4 
-              className="text-xl text-primary font-medium mb-8 italic"
-              variants={itemVariants}
-            >
-              Lash Artist Certificata
-            </motion.h4>
-            
-            <motion.p 
-              className="text-gray-700 mb-8 text-lg leading-relaxed"
-              variants={itemVariants}
-            >
-              Benvenuta nel mio mondo di bellezza e cura delle ciglia! Sono <span className="font-medium text-primary">Lelia</span>, una professionista certificata con oltre 5 anni di esperienza nel settore delle extension ciglia.
-            </motion.p>
-            
-            {/* Tabs per navigare tra i contenuti */}
-            <motion.div className="mb-8 flex flex-wrap gap-2" variants={itemVariants}>
-              {Object.keys(tabContent).map((tab) => (
-                <motion.button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className={`px-6 py-2.5 rounded-full transition-all duration-300 relative overflow-hidden ${activeTab === tab ? 'text-white font-medium' : 'text-gray-700'}`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <motion.span 
-                    className="absolute inset-0 bg-gradient-to-r from-primary to-gold"
-                    initial={{ scale: activeTab === tab ? 1 : 0 }}
-                    animate={{ scale: activeTab === tab ? 1 : 0 }}
-                    transition={{ duration: 0.3 }}
-                    style={{ borderRadius: "9999px", originX: 0.5, originY: 0.5 }}
-                  />
-                  <span className="relative z-10 capitalize tracking-wide">{tab}</span>
-                </motion.button>
-              ))}
-            </motion.div>
-            
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTab}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-                className="bg-white/50 backdrop-blur-sm p-6 rounded-xl shadow-sm"
+            <div className="bg-white/40 backdrop-blur-sm p-6 rounded-xl shadow-sm border border-primary/10">
+              <motion.h3 
+                className="text-3xl font-serif font-semibold mb-2 text-gray-800 relative inline-block"
+                variants={itemVariants}
               >
-                <h5 className="text-xl font-medium text-primary mb-4 font-serif">{tabContent[activeTab].title}</h5>
-                <ul className="space-y-4">
-                  {tabContent[activeTab].content.map((paragraph, idx) => (
-                    <motion.li 
-                      key={idx}
-                      className="flex items-start"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.1, duration: 0.3 }}
-                    >
-                      <span className="text-primary mr-3 mt-1.5 text-lg">✦</span>
-                      <p className="text-gray-700 leading-relaxed">{paragraph}</p>
-                    </motion.li>
-                  ))}
-                </ul>
+                Lelia Lashes
+                <motion.div 
+                  className="absolute -bottom-1 left-0 h-0.5 w-12 bg-primary"
+                  initial={{ width: 0 }}
+                  animate={{ width: "2rem" }}
+                  transition={{ delay: 0.4, duration: 0.6 }}
+                />
+              </motion.h3>
+              
+              <motion.h4 
+                className="text-xl text-primary font-medium mb-6 italic"
+                variants={itemVariants}
+              >
+                Lash Artist Certificata
+              </motion.h4>
+              
+              <motion.p 
+                className="text-gray-700 mb-6 text-lg leading-relaxed"
+                variants={itemVariants}
+              >
+                Benvenuta nel mio mondo di bellezza e cura delle ciglia! Sono <span className="font-medium text-primary">Lelia</span>, una professionista certificata con oltre 5 anni di esperienza nel settore delle extension ciglia.
+              </motion.p>
+              
+              {/* Tabs per navigare tra i contenuti */}
+              <motion.div className="mb-6 flex flex-wrap gap-2" variants={itemVariants}>
+                {Object.keys(tabContent).map((tab) => (
+                  <motion.button
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    className={`px-6 py-2.5 rounded-full transition-all duration-300 relative overflow-hidden ${activeTab === tab ? 'text-white font-medium' : 'text-gray-700'}`}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <motion.span 
+                      className="absolute inset-0 bg-gradient-to-r from-primary to-gold"
+                      initial={{ scale: activeTab === tab ? 1 : 0 }}
+                      animate={{ scale: activeTab === tab ? 1 : 0 }}
+                      transition={{ duration: 0.3 }}
+                      style={{ borderRadius: "9999px", originX: 0.5, originY: 0.5 }}
+                    />
+                    <span className="relative z-10 capitalize tracking-wide">{tab}</span>
+                  </motion.button>
+                ))}
               </motion.div>
-            </AnimatePresence>
+              
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeTab}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-white/50 backdrop-blur-sm p-6 rounded-xl shadow-sm"
+                >
+                  <h5 className="text-xl font-medium text-primary mb-4 font-serif">{tabContent[activeTab].title}</h5>
+                  <ul className="space-y-4">
+                    {tabContent[activeTab].content.map((paragraph, idx) => (
+                      <motion.li 
+                        key={idx}
+                        className="flex items-start"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: idx * 0.1, duration: 0.3 }}
+                      >
+                        <span className="text-primary mr-3 mt-1.5 text-lg">✦</span>
+                        <p className="text-gray-700 leading-relaxed">{paragraph}</p>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </motion.div>
+              </AnimatePresence>
+            </div> {/* Added the missing closing div tag here */}
             
             <motion.div 
               className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10"

@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import image1 from '../assets/1.jpeg';
+import image2 from '../assets/2.jpeg';
+import image3 from '../assets/3.jpeg';
+import image7 from '../assets/7.jpeg';
+import image8 from '../assets/8.jpeg';
 
 const Portfolio = () => {
   // Categorie per il filtro
@@ -32,7 +37,7 @@ const Portfolio = () => {
       id: 1,
       title: 'Extension Ciglia Classiche',
       category: 'Classiche',
-      image: '/src/assets/portfolio-1.svg',
+      image: image7,
       description: 'Applicazione extension ciglia classiche per un look naturale e raffinato.',
       client: 'Giulia M.',
       date: '15 Marzo 2023'
@@ -41,7 +46,7 @@ const Portfolio = () => {
       id: 2,
       title: 'Extension Ciglia Volume',
       category: 'Volume',
-      image: '/src/assets/portfolio-2.svg',
+      image: image8,
       description: 'Extension ciglia volume 2D-3D per uno sguardo più intenso e definito.',
       client: 'Sofia R.',
       date: '22 Aprile 2023'
@@ -50,7 +55,7 @@ const Portfolio = () => {
       id: 3,
       title: 'Extension Ciglia Russo',
       category: 'Russo',
-      image: '/src/assets/portfolio-3.svg',
+      image: image3,
       description: 'Extension ciglia volume russo per un effetto drammatico e voluminoso.',
       client: 'Alessia T.',
       date: '10 Maggio 2023'
@@ -59,7 +64,7 @@ const Portfolio = () => {
       id: 4,
       title: 'Lash Filler Trattamento',
       category: 'Classiche',
-      image: '/src/assets/portfolio-4.svg',
+      image: image1,
       description: 'Trattamento lash filler per nutrire e rinforzare le ciglia naturali.',
       client: 'Martina B.',
       date: '5 Giugno 2023'
@@ -68,7 +73,7 @@ const Portfolio = () => {
       id: 5,
       title: 'Lash Filler Trattamento',
       category: 'Classiche',
-      image: '/src/assets/portfolio-4.svg',
+      image: image2,
       description: 'Trattamento lash filler per nutrire e rinforzare le ciglia naturali.',
       client: 'Martina B.',
       date: '5 Giugno 2023'
@@ -233,41 +238,41 @@ const Portfolio = () => {
               initial="hidden"
               animate="visible"
               exit="hidden"
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
             >
               {displayedItems.map((item) => (
                 <motion.div 
                   key={item.id} 
                   variants={itemVariants}
-                  className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500"
+                  className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 bg-white h-[400px] cursor-pointer"
                   whileHover={{ y: -5 }}
                   onClick={() => setSelectedItem(item)}
                 >
-                  <div className="aspect-w-3 aspect-h-4 overflow-hidden bg-gray-100">
+                  <div className="h-full w-full relative">
                     <motion.img 
                       src={item.image} 
                       alt={item.title} 
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover absolute inset-0"
                       initial={{ scale: 1.2, filter: "blur(5px)" }}
                       animate={{ scale: 1, filter: "blur(0px)" }}
                       transition={{ duration: 0.5 }}
                       whileHover={{ scale: 1.05 }}
                     />
                     <motion.div 
-                      className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                       initial={{ opacity: 0 }}
                       whileHover={{ opacity: 1 }}
                     />
                   </div>
                   
                   <motion.div 
-                    className="absolute inset-0 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className="absolute inset-0 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     initial={{ opacity: 0, y: 20 }}
                     whileHover={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3 }}
                   >
                     <motion.h3 
-                      className="text-lg font-serif font-semibold text-white mb-1"
+                      className="text-xl font-serif font-semibold text-white mb-2 drop-shadow-md"
                       initial={{ y: 20, opacity: 0 }}
                       whileHover={{ y: 0, opacity: 1 }}
                       transition={{ duration: 0.3, delay: 0.1 }}
@@ -276,7 +281,7 @@ const Portfolio = () => {
                     </motion.h3>
                     
                     <motion.p 
-                      className="text-gray-200 text-xs"
+                      className="text-gray-100 text-sm leading-relaxed mb-3 drop-shadow-md"
                       initial={{ y: 20, opacity: 0 }}
                       whileHover={{ y: 0, opacity: 1 }}
                       transition={{ duration: 0.3, delay: 0.2 }}
@@ -290,25 +295,41 @@ const Portfolio = () => {
                       whileHover={{ y: 0, opacity: 1 }}
                       transition={{ duration: 0.3, delay: 0.3 }}
                     >
-                      <span className="inline-block px-2 py-1 bg-primary/80 text-white text-xs rounded-full">
+                      <span className="inline-block px-3 py-1.5 bg-primary text-white text-xs font-medium rounded-full shadow-md">
                         {item.category}
                       </span>
-                      <span className="text-white/80 text-xs">{item.date}</span>
+                      <span className="text-white text-xs font-medium drop-shadow-md">{item.date}</span>
                     </motion.div>
                   </motion.div>
                   
+                  <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+                    <motion.div 
+                      className="bg-white/90 backdrop-blur-sm w-12 h-12 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 shadow-lg"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ opacity: 0, scale: 1 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                      </svg>
+                    </motion.div>
+                  </div>
+                  
+                  {/* Indicatore di clic per aprire la modale */}
                   <motion.div 
-                    className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 cursor-pointer"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    initial={{ opacity: 0, rotate: -90 }}
-                    whileInView={{ opacity: 1, rotate: 0 }}
-                    transition={{ duration: 0.3 }}
+                    className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-md flex items-center space-x-1"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                     </svg>
+                    <span className="text-xs font-medium text-gray-800">Dettagli</span>
                   </motion.div>
                 </motion.div>
               ))}
@@ -379,30 +400,32 @@ const Portfolio = () => {
       <AnimatePresence>
         {selectedItem && (
           <motion.div 
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedItem(null)}
           >
             <motion.div 
-              className="bg-white rounded-xl overflow-hidden max-w-3xl w-full max-h-[90vh] flex flex-col md:flex-row"
+              className="bg-white rounded-2xl overflow-hidden max-w-4xl w-full max-h-[90vh] flex flex-col md:flex-row shadow-2xl"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
             >
               <div className="md:w-1/2 relative">
-                <img 
-                  src={selectedItem.image} 
-                  alt={selectedItem.title} 
-                  className="w-full h-full object-cover"
-                />
-                                <div className="absolute top-4 left-4 bg-primary/80 text-white text-xs px-3 py-1 rounded-full">
+                <div className="h-full">
+                  <img 
+                    src={selectedItem.image} 
+                    alt={selectedItem.title} 
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
+                <div className="absolute top-4 left-4 bg-primary/90 text-white text-xs px-4 py-2 rounded-full font-medium shadow-md">
                   {selectedItem.category}
                 </div>
                 <motion.button
-                  className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm w-10 h-10 rounded-full flex items-center justify-center"
+                  className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm w-10 h-10 rounded-full flex items-center justify-center shadow-md"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   onClick={() => setSelectedItem(null)}
@@ -413,27 +436,27 @@ const Portfolio = () => {
                 </motion.button>
               </div>
               
-              <div className="md:w-1/2 p-6 md:p-8 flex flex-col">
+              <div className="md:w-1/2 p-8 flex flex-col bg-white">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4 }}
                 >
                   <h3 className="text-2xl font-serif font-semibold text-gray-800 mb-3">{selectedItem.title}</h3>
-                  <div className="w-20 h-0.5 bg-primary mb-4"></div>
-                  <p className="text-gray-600 mb-6">{selectedItem.description}</p>
+                  <div className="w-24 h-0.5 bg-gradient-to-r from-primary to-gold mb-6"></div>
+                  <p className="text-gray-600 mb-8 leading-relaxed text-base">{selectedItem.description}</p>
                   
-                  <div className="space-y-4 mb-8">
+                  <div className="space-y-5 mb-10 bg-gray-50 p-6 rounded-xl">
                     <div className="flex items-center">
-                      <span className="w-24 text-gray-500 text-sm">Cliente:</span>
+                      <span className="w-28 text-gray-500 text-sm font-medium">Cliente:</span>
                       <span className="text-gray-800 font-medium">{selectedItem.client}</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="w-24 text-gray-500 text-sm">Data:</span>
+                      <span className="w-28 text-gray-500 text-sm font-medium">Data:</span>
                       <span className="text-gray-800 font-medium">{selectedItem.date}</span>
                     </div>
                     <div className="flex items-center">
-                      <span className="w-24 text-gray-500 text-sm">Categoria:</span>
+                      <span className="w-28 text-gray-500 text-sm font-medium">Categoria:</span>
                       <span className="text-gray-800 font-medium">{selectedItem.category}</span>
                     </div>
                   </div>
@@ -442,8 +465,8 @@ const Portfolio = () => {
                 <div className="mt-auto">
                   <motion.a
                     href="#contatti"
-                    className="inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-full font-medium tracking-wide"
-                    whileHover={{ scale: 1.05, backgroundColor: "#d4af37" }}
+                    className="inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-r from-primary to-gold text-white rounded-full font-medium tracking-wide shadow-md"
+                    whileHover={{ scale: 1.05, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setSelectedItem(null)}
                   >

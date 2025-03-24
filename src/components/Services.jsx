@@ -1,6 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import image1 from '../assets/1.jpeg';
+import image2 from '../assets/2.jpeg';
+import image3 from '../assets/3.jpeg';
+import image4 from '../assets/4.jpeg';
+import image5 from '../assets/5.jpeg';
+import image6 from '../assets/6.jpeg';
 
 const Services = () => {
   const [activeService, setActiveService] = useState(null);
@@ -37,7 +43,7 @@ const Services = () => {
       description: 'Applicazione di una singola extension per ogni ciglia naturale. Ideale per un look naturale e raffinato.',
       price: '€70',
       duration: '90 min',
-      image: '/src/assets/classic-lashes.svg',
+      image: image1,
       color: '#d4af37'
     },
     {
@@ -46,7 +52,7 @@ const Services = () => {
       description: 'Applicazione di 2-3 extension per ogni ciglia naturale. Per uno sguardo più intenso e definito.',
       price: '€90',
       duration: '120 min',
-      image: '/src/assets/volume-lashes.svg',
+      image: image2,
       color: '#c8a431'
     },
     {
@@ -55,7 +61,7 @@ const Services = () => {
       description: 'Tecnica avanzata con applicazione di 4-6 extension per ciglia. Per un effetto drammatico e voluminoso.',
       price: '€110',
       duration: '150 min',
-      image: '/src/assets/russian-lashes.svg',
+      image: image3,
       color: '#bc992b'
     },
     {
@@ -64,7 +70,7 @@ const Services = () => {
       description: 'Trattamento nutriente che rinforza e infoltisce le ciglia naturali. Ideale prima dell\'applicazione di extension.',
       price: '€45',
       duration: '45 min',
-      image: '/src/assets/lash-filler.svg',
+      image: image4,
       color: '#b08e25'
     },
     {
@@ -73,7 +79,7 @@ const Services = () => {
       description: 'Rimozione professionale e sicura delle extension ciglia con prodotti specifici.',
       price: '€25',
       duration: '30 min',
-      image: '/src/assets/removal.svg',
+      image: image5,
       color: '#a4831f'
     },
     {
@@ -82,7 +88,7 @@ const Services = () => {
       description: 'Manutenzione delle extension esistenti con sostituzione di quelle cadute. Consigliato ogni 3-4 settimane.',
       price: 'da €45',
       duration: '60-90 min',
-      image: '/src/assets/refill.svg',
+      image: image6,
       color: '#987819'
     }
   ];
@@ -180,7 +186,7 @@ const Services = () => {
           variants={containerVariants}
           initial="hidden"
           animate={controls}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto px-4"
         >
           {services.map((service) => (
             <motion.div 
@@ -190,11 +196,11 @@ const Services = () => {
                 y: -10, 
                 boxShadow: `0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 15px ${service.color}40` 
               }}
-              className="bg-white/80 backdrop-blur-sm rounded-xl overflow-hidden flex flex-col h-full transform-gpu"
+              className="bg-white/90 backdrop-blur-sm rounded-2xl overflow-hidden flex flex-col h-full transform-gpu border border-gray-100 shadow-sm"
               onMouseEnter={() => setActiveService(service.id)}
               onMouseLeave={() => setActiveService(null)}
             >
-              <div className="relative h-56 overflow-hidden">
+              <div className="relative h-64 overflow-hidden">
                 <motion.div 
                   className="absolute inset-0 bg-gradient-to-br"
                   style={{ 
@@ -213,7 +219,7 @@ const Services = () => {
                 />
                 
                 <motion.div 
-                  className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium"
+                  className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-medium shadow-sm"
                   style={{ color: service.color }}
                   initial={{ opacity: 0, y: -20 }}
                   whileHover={{ opacity: 1, y: 0 }}
@@ -222,9 +228,9 @@ const Services = () => {
                 </motion.div>
               </div>
               
-              <div className="p-6 flex flex-col flex-grow relative">
+              <div className="p-8 flex flex-col flex-grow relative">
                 <motion.div 
-                  className="absolute -top-10 left-6 bg-white shadow-lg rounded-full px-4 py-2 font-bold text-lg"
+                  className="absolute -top-10 left-6 bg-white shadow-lg rounded-full px-5 py-2.5 font-bold text-lg"
                   style={{ color: service.color }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ 
@@ -235,16 +241,16 @@ const Services = () => {
                   {service.price}
                 </motion.div>
                 
-                <h3 className="text-xl font-serif font-semibold mb-3 text-gray-800">{service.title}</h3>
+                <h3 className="text-xl font-serif font-semibold mb-4 text-gray-800">{service.title}</h3>
                 
-                <p className="text-gray-600 mb-4 flex-grow">{service.description}</p>
+                <p className="text-gray-600 mb-6 flex-grow leading-relaxed">{service.description}</p>
                 
                 <motion.button 
                   className="mt-2 self-start relative overflow-hidden group"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <span className="relative z-10 flex items-center font-medium">
+                  <span className="relative z-10 flex items-center font-medium text-primary">
                     Prenota ora
                     <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
