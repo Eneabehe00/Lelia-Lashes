@@ -1,0 +1,61 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5e7c1" />
+      <stop offset="50%" stop-color="#d4af37" />
+      <stop offset="100%" stop-color="#b8860b" />
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="#f9f5e9" />
+  
+  <!-- Portfolio image 2: Volume 3D intense -->
+  <g transform="translate(100, 100)">
+    <!-- Eye with volume lashes -->
+    <ellipse cx="100" cy="50" rx="80" ry="35" fill="white" stroke="#333" stroke-width="1.5" />
+    <circle cx="100" cy="50" r="25" fill="#5b3b0c" />
+    <circle cx="100" cy="50" r="12" fill="#000" />
+    <circle cx="110" cy="40" r="5" fill="white" opacity="0.7" />
+    
+    <!-- Volume 3D lashes - more intense -->
+    <g stroke="#333" stroke-width="1.2" fill="none">
+      <!-- Group 1 -->
+      <path d="M50,35 Q40,15 35,5" />
+      <path d="M50,35 Q42,13 38,3" />
+      <path d="M50,35 Q38,17 32,7" />
+      
+      <!-- Group 2 -->
+      <path d="M65,30 Q55,10 50,0" />
+      <path d="M65,30 Q57,8 53,-2" />
+      <path d="M65,30 Q53,12 47,2" />
+      
+      <!-- Group 3 -->
+      <path d="M80,25 Q75,5 75,-5" />
+      <path d="M80,25 Q77,3 78,-7" />
+      <path d="M80,25 Q73,7 72,-3" />
+      
+      <!-- Group 4 -->
+      <path d="M100,20 Q105,0 110,-10" />
+      <path d="M100,20 Q107,-2 113,-12" />
+      <path d="M100,20 Q103,2 107,-8" />
+      
+      <!-- Group 5 -->
+      <path d="M120,25 Q130,5 140,-5" />
+      <path d="M120,25 Q132,3 143,-7" />
+      <path d="M120,25 Q128,7 137,-3" />
+      
+      <!-- Group 6 -->
+      <path d="M135,30 Q145,10 155,0" />
+      <path d="M135,30 Q147,8 158,-2" />
+      <path d="M135,30 Q143,12 153,2" />
+      
+      <!-- Group 7 -->
+      <path d="M150,35 Q160,15 165,5" />
+      <path d="M150,35 Q162,13 168,3" />
+      <path d="M150,35 Q158,17 162,7" />
+    </g>
+  </g>
+  
+  <!-- Decorative elements -->
+  <rect x="0" y="270" width="400" height="30" fill="url(#goldGradient)" opacity="0.3" />
+  <text x="200" y="290" font-family="'Playfair Display', serif" font-size="14" text-anchor="middle" fill="#333">Volume 3D Intenso</text>
+</svg>

@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Typography */
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.6;
+    font-weight: 400;
+    
+    /* Color Scheme */
+    --color-primary: #D4AF37;
+    --color-primary-light: #e6c456;
+    --color-secondary: #B76E79;
+    --color-background: #FFF8F0;
+    --color-text: #333333;
+    --color-text-light: #666666;
+    
+    color: var(--color-primary);
+    background-color: var(--color-background);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Gilda Display', serif;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.3;
+  }
+
+  a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  a:hover {
+    color: var(--color-secondary);
+  }
+
+  button, .btn {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: white;
+    font-weight: 500;
+    padding: 0.75rem 2rem;
+    border-radius: 100px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  button:hover, .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.5);
+  }
+
+  /* Modern Animations */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .slide-in {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: slideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .scale-in {
+    opacity: 0;
+    transform: scale(0.95);
+    animation: scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideIn {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Modern Gradient Animation */
+  .animate-gradient {
+    background: linear-gradient(
+      120deg,
+      var(--color-primary) 0%,
+      var(--color-primary-light) 25%,
+      var(--color-primary) 50%,
+      var(--color-primary-light) 75%,
+      var(--color-primary) 100%
+    );
+    background-size: 400% 400%;
+    animation: gradientFlow 8s ease infinite;
+  }
+
+  @keyframes gradientFlow {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+  }
+
+  /* Utility classes for the color scheme */
+  .text-primary {
+    color: var(--color-primary) !important;
+  }
+  
+  .text-secondary {
+    color: var(--color-secondary) !important;
+  }
+  
+  .bg-primary {
+    background-color: var(--color-primary) !important;
+  }
+  
+  .bg-secondary {
+    background-color: var(--color-secondary) !important;
+  }
+  
+  .border-primary {
+    border-color: var(--color-primary) !important;
+  }
+  
+  .border-secondary {
+    border-color: var(--color-secondary) !important;
+  }
+
+  /* Smooth Scrollbar for modern browsers */
+  @media (pointer: fine) {
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--color-primary);
+      border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--color-primary-light);
+    }
+  }
+}

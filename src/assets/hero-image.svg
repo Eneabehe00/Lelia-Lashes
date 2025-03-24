@@ -1,0 +1,36 @@
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5e7c1" />
+      <stop offset="50%" stop-color="#d4af37" />
+      <stop offset="100%" stop-color="#b8860b" />
+    </linearGradient>
+  </defs>
+  <circle cx="250" cy="250" r="240" fill="#faf7f2" />
+  <g transform="translate(100, 180)">
+    <!-- Stylized eye with lashes -->
+    <ellipse cx="150" cy="70" rx="120" ry="50" fill="white" stroke="#333" stroke-width="2" />
+    <circle cx="150" cy="70" r="40" fill="#5b3b0c" />
+    <circle cx="150" cy="70" r="20" fill="#000" />
+    <circle cx="170" cy="55" r="10" fill="white" opacity="0.7" />
+    
+    <!-- Lashes top -->
+    <path d="M70,50 Q60,20 50,10" stroke="#333" stroke-width="2" fill="none" />
+    <path d="M90,40 Q80,10 70,0" stroke="#333" stroke-width="2" fill="none" />
+    <path d="M120,35 Q120,5 120,-10" stroke="#333" stroke-width="2" fill="none" />
+    <path d="M150,30 Q160,0 170,-15" stroke="#333" stroke-width="2" fill="none" />
+    <path d="M180,35 Q200,5 220,-5" stroke="#333" stroke-width="2" fill="none" />
+    <path d="M210,45 Q230,15 250,5" stroke="#333" stroke-width="2" fill="none" />
+    
+    <!-- Gold accents -->
+    <path d="M70,50 Q60,20 50,10" stroke="url(#goldGradient)" stroke-width="1" fill="none" opacity="0.8" />
+    <path d="M90,40 Q80,10 70,0" stroke="url(#goldGradient)" stroke-width="1" fill="none" opacity="0.8" />
+    <path d="M120,35 Q120,5 120,-10" stroke="url(#goldGradient)" stroke-width="1" fill="none" opacity="0.8" />
+    <path d="M150,30 Q160,0 170,-15" stroke="url(#goldGradient)" stroke-width="1" fill="none" opacity="0.8" />
+    <path d="M180,35 Q200,5 220,-5" stroke="url(#goldGradient)" stroke-width="1" fill="none" opacity="0.8" />
+    <path d="M210,45 Q230,15 250,5" stroke="url(#goldGradient)" stroke-width="1" fill="none" opacity="0.8" />
+  </g>
+  
+  <!-- Decorative elements -->
+  <circle cx="250" cy="250" r="245" fill="none" stroke="url(#goldGradient)" stroke-width="2" opacity="0.5" />
+</svg>
